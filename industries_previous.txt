@@ -1,0 +1,216 @@
+       Symbol            Industry            Volume  Change % Change
+0      ^TV.US     Volume in 000's         416914.91    0.00    0.00%
+1    ^YHOH712            Aluminum         397065.47  712.31   +0.18%
+2    ^YHOH826   MarketingServices          38367.27  160.54   +0.42%
+3    ^YHOH732      Packaging&Cont          16406.88   63.62   +0.39%
+4    ^YHOH746   Bev-Wineries&Dist          15245.35 -149.65   -0.97%
+5    ^YHOH731      Paper Products           6648.76   -5.04   -0.08%
+6    ^YHOH750    Money Center Bks           6053.15  -22.13   -0.36%
+7    ^YHOH735    Auto Manuf-Major           4947.82  -10.92   -0.22%
+8    ^YHOH847      Jewelry Stores           4666.59   -5.52   -0.12%
+9    ^YHOH763     Div Investments           3383.40    2.02   +0.06%
+10   ^YHOH817          Waste Mgmt           3374.15    5.18   +0.15%
+11   ^YHOH713     Metals&Minerals           3346.76    1.61   +0.05%
+12   ^YHOH865   Staff&Outsourcing           3096.57    2.50   +0.08%
+13   ^YHOH867     Education&Train           2510.88  -19.27   -0.76%
+14   ^YHOH710        Steel & Iron           2116.71    3.83   +0.18%
+15   ^YHOH799      Aero/Def-Major           2094.91   -9.41   -0.45%
+16   ^YHOH893   Semicndtr-MemChip           1895.95  -12.57   -0.66%
+17   ^YHOH894   Semicndtr-Special           1747.36  -12.08   -0.69%
+18   ^YHOH721      Business Equip           1623.02    0.10   +0.01%
+19   ^YHOH797   Med Practitioners           1422.39    0.00    0.00%
+20   ^YHOH764     Credit Services           1420.77   -9.92   -0.69%
+21   ^YHOH773    REIT-Diversified           1373.39   -3.91   -0.28%
+22   ^YHOH881    Data Storage Dev           1362.78   -6.55   -0.48%
+23   ^YHOH737        Rec Vehicles           1360.25    0.71   +0.05%
+24   ^YHOH801     Farm&Const Mach           1354.51  -10.99   -0.80%
+25   ^YHOH896      Semi Equip&Mat           1343.58   -1.37   -0.10%
+26   ^YHOH885        App Software           1326.48   -7.78   -0.58%
+27   ^YHOH862     Rent&Lease Serv           1306.24  -12.38   -0.94%
+28   ^YHOH880    Computer Systems           1279.14    0.34   +0.03%
+29   ^YHOH815   HeavyConstruction           1273.60   -0.07   -0.01%
+30   ^YHOH765   ClosedEndFundDebt           1270.91   78.89   +6.62%
+31   ^YHOH848   Music&Video Store           1259.36    0.58   +0.05%
+32   ^YHOH884     Multi&GraphSoft           1256.06    8.37   +0.67%
+33   ^YHOH753     Southeast Banks           1249.86   -3.39   -0.27%
+34   ^YHOH701          Synthetics           1241.64  -13.41   -1.07%
+35   ^YHOH800   AeroDef Prod&Serv           1230.32   -3.98   -0.32%
+36   ^YHOH795    Medical Labs&Res           1224.56   -0.27   -0.02%
+37   ^YHOH907    InternetServProv           1220.95   -4.44   -0.36%
+38   ^YHOH878    Div Computer Sys           1217.48  -46.09   -3.65%
+39   ^YHOH902       Proc Sys&Prod           1202.57    1.26   +0.10%
+40   ^YHOH793    Long-TermCareFac           1198.01    7.47   +0.63%
+41   ^YHOH749    Tobacco Products           1197.68   -4.80   -0.40%
+42   ^YHOH787       Drug Products           1174.20    3.44   +0.29%
+43   ^YHOH853   Indus Equip Whole           1173.56   -6.18   -0.52%
+44   ^YHOH818             Lodging           1158.79   -7.61   -0.65%
+45   ^YHOH899   Sci&Tech Instmnts           1154.03   -0.89   -0.08%
+46   ^YHOH883     Computer Periph           1149.27   10.18   +0.89%
+47   ^YHOH780     Mortgage Invest           1142.42   -0.04   -0.00%
+48   ^YHOH796    Home Health Care           1135.67   21.09   +1.89%
+49   ^YHOH836   Department Stores           1132.63   -0.75   -0.07%
+50   ^YHOH777     REIT-Industrial           1131.96   -3.28   -0.29%
+51   ^YHOH783    Drug Manuf-Major           1124.91  -11.96   -1.05%
+52   ^YHOH702   Agricultural Chem           1121.42    0.07   +0.01%
+53   ^YHOH778    REIT-Residential           1118.12   -0.25   -0.02%
+54   ^YHOH759     Savings & Loans           1117.30   -0.66   -0.06%
+55   ^YHOH864   Consumer Services           1114.38    5.52   +0.50%
+56   ^YHOH868   TechnicalServices           1114.02   -8.19   -0.73%
+57   ^YHOH761  Invstmt Brok-Reg'l           1104.20   -4.70   -0.42%
+58   ^YHOH897   PrintedCircuitBds           1103.80   -0.03   -0.00%
+59   ^YHOH772   Insurance Brokers           1103.95   -2.77   -0.25%
+60   ^YHOH891   Info&DeliveryServ           1101.85   -0.93   -0.08%
+61   ^YHOH704       Major Oil&Gas           1101.25   -6.30   -0.57%
+62   ^YHOH717       Conglomerates           1099.68   -1.27   -0.12%
+63   ^YHOH852    Build Mtrl Whole           1095.92   -5.54   -0.50%
+64   ^YHOH776    REIT-Hotel/Motel           1088.60   -2.77   -0.25%
+65   ^YHOH802    Indus Equip&Comp           1085.55   -2.11   -0.19%
+66   ^YHOH744       Confectioners           1080.12   -0.01   -0.00%
+67   ^YHOH794           Hospitals           1073.40    0.72   +0.07%
+68   ^YHOH873        Air Services           1064.74   -0.18   -0.02%
+69   ^YHOH748          Cigarettes           1064.23   -2.99   -0.28%
+70   ^YHOH769      Acc&Health Ins           1063.46   -5.35   -0.50%
+71   ^YHOH810     Residential Con           1061.45  -15.62   -1.45%
+72   ^YHOH756       Pacific Banks           1059.47   -6.67   -0.63%
+73   ^YHOH792   Health Care Plans           1056.45   -5.73   -0.54%
+74   ^YHOH790   Med Instmnts&Supp           1053.46   -0.62   -0.06%
+75   ^YHOH734     Office Supplies           1051.93  -15.70   -1.47%
+76   ^YHOH851    Auto Parts Whole           1050.69    2.17   +0.21%
+77   ^YHOH742       Meat Products           1048.63   -2.78   -0.26%
+78   ^YHOH755     Southwest Banks           1048.54   -5.16   -0.49%
+79   ^YHOH752   MidAtlantic Banks           1048.24   -3.90   -0.37%
+80   ^YHOH840   ElectronicsStores           1043.02    9.58   +0.93%
+81   ^YHOH768      Life Insurance           1037.64   -3.65   -0.35%
+82   ^YHOH844   Catalog&Mail Ordr           1035.00   12.55   +1.23%
+83   ^YHOH821   SpecialtyEateries           1031.97   -2.76   -0.27%
+84   ^YHOH789    Diagnostic Subst           1031.16   -6.02   -0.58%
+85   ^YHOH849    Auto Dealerships           1025.16   -3.22   -0.31%
+86   ^YHOH807   Metal Fabrication           1024.15    3.01   +0.29%
+87   ^YHOH854   Electronics Whole           1022.53   -0.22   -0.02%
+88   ^YHOH809  Textile Industrial           1018.40   -0.74   -0.07%
+89   ^YHOH751     Northeast Banks           1017.39   -3.60   -0.35%
+90   ^YHOH808    Indus Elec Equip           1011.64   10.75   +1.07%
+91   ^YHOH856     Computers Whole           1010.55    1.33   +0.13%
+92   ^YHOH820         Restaurants           1009.50   -6.54   -0.64%
+93   ^YHOH906   Div Comm Services           1009.14    6.93   +0.69%
+94   ^YHOH837    Discount Variety           1008.88   -2.84   -0.28%
+95   ^YHOH775     REIT-Healthcare           1003.27   -4.67   -0.46%
+96   ^YHOH707   Oil&Gas Drill&Exp            998.83    1.21   +0.12%
+97   ^YHOH839      Grocery Stores            997.15    5.44   +0.55%
+98   ^YHOH700     Chemicals-Major            996.51    0.04   +0.00%
+99   ^YHOH766   ClosedEndFundEqty            995.13   -0.19   -0.02%
+100  ^YHOH728    Apparel Foot&Acc            994.89   -4.65   -0.47%
+101  ^YHOH806     Small Tools&Acc            987.08   -0.17   -0.02%
+102  ^YHOH767   ClosedEndFundFrgn            986.83  -30.84   -3.03%
+103  ^YHOH819     Resorts&Casinos            984.42   -2.49   -0.25%
+104  ^YHOH870       Mgmt Services            984.02   -4.73   -0.48%
+105  ^YHOH733   Cleaning Products            979.94    3.08   +0.32%
+106  ^YHOH779         REIT-Retail            969.34   -0.27   -0.03%
+107  ^YHOH822    GamingActivities            961.32   -0.05   -0.00%
+108  ^YHOH798   SpecializedHealth            961.06    2.88   +0.30%
+109  ^YHOH842    Home Furn Stores            959.88   18.89   +2.01%
+110  ^YHOH857     Drugs Wholesale            956.70   20.67   +2.21%
+111  ^YHOH706     Oil&Gas Ref&Mkt            953.34   -1.57   -0.16%
+112  ^YHOH724      Sporting Goods            952.51   -7.56   -0.79%
+113  ^YHOH874        Air Delivery            943.98   -0.45   -0.05%
+114  ^YHOH887   SecuritySoft&Serv            942.73    2.47   +0.26%
+115  ^YHOH834    Publishing-Books            939.37    6.29   +0.67%
+116  ^YHOH823    Sport Activities            935.06    4.44   +0.48%
+117  ^YHOH730   Personal Products            921.35   -5.79   -0.62%
+118  ^YHOH715              Silver            919.70   -2.09   -0.23%
+119  ^YHOH875            Trucking            917.23   -0.27   -0.03%
+120  ^YHOH718          Appliances            904.37  -17.49   -1.90%
+121  ^YHOH855   MedicalEquipWhole            903.35    0.90   +0.10%
+122  ^YHOH747     Bev-Soft Drinks            901.50   -0.39   -0.04%
+123  ^YHOH771    Surety&Title Ins            893.63   -3.56   -0.40%
+124  ^YHOH727    Apparel Clothing            891.17   -4.08   -0.46%
+125  ^YHOH828     Broadcasting-TV            888.13   -3.11   -0.35%
+126  ^YHOH909    InternetSoftServ            888.09    2.53   +0.29%
+127  ^YHOH872   Regional Airlines            885.76   -6.71   -0.75%
+128  ^YHOH833     Pub-Periodicals            885.38    1.72   +0.19%
+129  ^YHOH889    Health Info Serv            880.00    8.87   +1.02%
+130  ^YHOH774         REIT-Office            879.34   -1.23   -0.14%
+131  ^YHOH723        Toys & Games            878.82    4.55   +0.52%
+132  ^YHOH811       Manuf Housing            873.43  -18.66   -2.09%
+133  ^YHOH898     Div Electronics            870.84    2.26   +0.26%
+134  ^YHOH914     Water Utilities            869.65    5.34   +0.62%
+135  ^YHOH786       Drug Delivery            861.01    0.25   +0.03%
+136  ^YHOH716   Nonmet Min Mining            857.30    2.04   +0.24%
+137  ^YHOH908    InternetInfoProv            856.94   -4.72   -0.55%
+138  ^YHOH911   ElectricUtilities            850.26    1.49   +0.18%
+139  ^YHOH838         Drug Stores            846.60    1.08   +0.13%
+140  ^YHOH843   Auto Parts Stores            836.97    9.12   +1.10%
+141  ^YHOH741    Proc&Pckgd Goods            833.27    1.22   +0.15%
+142  ^YHOH784    Drug-Manuf-Other            833.25    6.05   +0.73%
+143  ^YHOH846    Toy&Hobby Stores            825.58    4.97   +0.61%
+144  ^YHOH869   Research Services            824.32   -2.28   -0.28%
+145  ^YHOH859    Basic Mtrl Whole            824.05    3.69   +0.45%
+146  ^YHOH785       Drugs-Generic            819.33    2.02   +0.25%
+147  ^YHOH726    Photo Equip&Supp            815.74   -0.78   -0.10%
+148  ^YHOH709   Oil&Gas Pipelines            814.36    1.30   +0.16%
+149  ^YHOH757   Foreign Money Bks            806.44    6.46   +0.81%
+150  ^YHOH825   AdvertisingAgency            802.92    0.25   +0.03%
+151  ^YHOH720   House&Accessories            797.26    1.81   +0.23%
+152  ^YHOH803       Div Machinery            791.17   -0.60   -0.08%
+153  ^YHOH877           Railroads            787.75    0.58   +0.07%
+154  ^YHOH913       Div Utilities            764.63    0.71   +0.09%
+155  ^YHOH912       Gas Utilities            743.73    0.30   +0.04%
+156  ^YHOH845   Sport Good Stores            690.57   -0.78   -0.11%
+157  ^YHOH900       Wireless Comm            681.80   -0.01   -0.00%
+158  ^YHOH904    Telecom-Domestic            677.99   10.27   +1.54%
+159  ^YHOH754       Midwest Banks            636.36   -0.05   -0.01%
+160  ^YHOH892   Semicondctr-Broad            625.60   -2.30   -0.37%
+161  ^YHOH861   Business Services            614.36   -1.22   -0.20%
+162  ^YHOH743      Dairy Products            592.99    0.06   +0.01%
+163  ^YHOH770   Prop&Casualty Ins            577.35   -2.83   -0.49%
+164  ^YHOH831   MovieProd-Theater            570.67    5.13   +0.91%
+165  ^YHOH711              Copper            569.17   -6.65   -1.15%
+166  ^YHOH876            Shipping            536.60    0.61   +0.11%
+167  ^YHOH905     Telecom-Foreign            492.39    3.55   +0.73%
+168  ^YHOH736      Trucks & Other            430.06   -2.86   -0.66%
+169  ^YHOH829     Broadcast-Radio            424.24   -0.08   -0.02%
+170  ^YHOH910   Foreign Utilities            423.94    3.49   +0.83%
+171  ^YHOH824   General Entertain            422.10   -1.46   -0.34%
+172  ^YHOH903    LongDistCarriers            420.27   -2.50   -0.59%
+173  ^YHOH788       Biotechnology            396.03   -0.68   -0.17%
+174  ^YHOH745   Beverages-Brewers            375.03   -0.14   -0.04%
+175  ^YHOH758   Foreign Reg'l Bks            371.63    2.94   +0.80%
+176  ^YHOH738          Auto Parts            358.76   -0.39   -0.11%
+177  ^YHOH814   Building Material            358.47   -0.57   -0.16%
+178  ^YHOH708   Oil&Gas Equip&Ser            346.93    0.87   +0.25%
+179  ^YHOH882   Ntwrk&CommDevices            302.62   -1.10   -0.36%
+180  ^YHOH827   Entertain-Diverse            262.51   -1.16   -0.44%
+181  ^YHOH886       Tech&Sys Soft            228.82   -1.62   -0.70%
+182  ^YHOH729   Rubber & Plastics            226.97   -0.08   -0.04%
+183  ^YHOH781       Property Mgmt            215.97    0.01   +0.00%
+184  ^YHOH871      Major Airlines            152.37   -0.55   -0.36%
+185  ^YHOH739      Food-Major Div            101.55    0.01   +0.01%
+186  ^YHOH866    Security&Protect             82.23   -0.10   -0.12%
+187  ^YHOH782     Real Estate Dev             79.09   -0.11   -0.13%
+188  ^YHOH830        CATV Systems             77.54   -0.07   -0.10%
+189  ^YHOH725    Recreational Gds             73.42   -0.65   -0.87%
+190  ^YHOH832      Pub-Newspapers             72.86   -0.40   -0.54%
+191  ^YHOH890   BusinessSoft&Serv             72.17   -0.70   -0.97%
+192  ^YHOH722    Electronic Equip             70.65    0.13   +0.18%
+193  ^YHOH895    Semi-IntCircuits             62.47   -0.31   -0.50%
+194  ^YHOH850    Specialty Retail             49.93   -0.10   -0.21%
+195  ^YHOH816   GeneralContractrs             31.14   -0.03   -0.10%
+196  ^YHOH813              Cement             23.21   -0.04   -0.17%
+197  ^YHOH762    Asset Management             22.03   -0.02   -0.09%
+198  ^YHOH901      Comm Equipment              7.04   -0.00   -0.01%
+199  ^YHOH805      Mach Tools&Acc              3.79   -0.02   -0.54%
+200  ^YHOH812      LumberWoodProd              1.59    0.00   +0.11%
+201  ^YHOH835      Apparel Stores              1.21   -0.00   -0.30%
+202  ^YHOH863   Personal Services              1.04    0.03   +3.30%
+203  ^YHOH760  Invstmt Brok-Nat'l              0.93   -0.00   -0.20%
+204  ^YHOH703      Specialty Chem              0.91   -0.00   -0.13%
+205  ^YHOH714                Gold              0.74   -0.00   -0.08%
+206  ^YHOH841    Home Improvement              0.67   -0.00   -0.49%
+207  ^YHOH858      Food Wholesale              0.59   -0.00   -0.35%
+208  ^YHOH888         IT Services              0.32   -0.00   -0.17%
+209  ^YHOH791   Medical App&Equip              0.25   -0.00   -0.14%
+210  ^YHOH705       Indep Oil&Gas              0.14   -0.00   -0.27%
+211  ^YHOH804   Pollution&Treatmt              0.08   -0.00   -0.13%
+212  ^YHOH740       Farm Products              0.02   -0.00   -0.05%
+213  ^YHOH719       Home Furn&Fix              0.01    0.00   +0.00%
+214  ^YHOH860    Wholesale, Other          -2506.45    0.00    0.00%]
