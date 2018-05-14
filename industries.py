@@ -151,7 +151,8 @@ def get_stocks():
              db_string = "postgres://postgres:password@localhost:5432/postgres"
              conn = psycopg2.connect(db_string)
              cur = conn.cursor()
-             cur.execute("INSERT INTO stock_data (ind_symbol, stock_symbol, trade_date, stock_name, closing_price, price_change, price_percent_change, stock_volume, stock_avg_vol, mkt_cap) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (ind_symbol, stock_data[0].iloc[i]['Symbol'], now, stock_data[0].iloc[i]['Name'], str(stock_data[0].iloc[i]['Price (Intraday)']), str(stock_data[0].iloc[i]['Change']), str(stock_data[0].iloc[i]['% Change']), str(stock_data[0].iloc[i]['Volume']), str(stock_data[0].iloc[i]['Avg Vol (3 month)']), str(stock_data[0].iloc[i]['Market Cap'])))
+# An error was generated on the insert statement because a stock_symbol contained a value of TRUE and was generating a numpy.boolean error on the insert statement.  Consequently, all fields are converted to str to prevent errors in the future.
+             cur.execute("INSERT INTO stock_data (ind_symbol, stock_symbol, trade_date, stock_name, closing_price, price_change, price_percent_change, stock_volume, stock_avg_vol, mkt_cap) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (ind_symbol, str(stock_data[0].iloc[i]['Symbol']), now, str(stock_data[0].iloc[i]['Name']), str(stock_data[0].iloc[i]['Price (Intraday)']), str(stock_data[0].iloc[i]['Change']), str(stock_data[0].iloc[i]['% Change']), str(stock_data[0].iloc[i]['Volume']), str(stock_data[0].iloc[i]['Avg Vol (3 month)']), str(stock_data[0].iloc[i]['Market Cap'])))
              conn.commit()
              cur.close
 
