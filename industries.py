@@ -12,6 +12,7 @@ import urllib.request
 import pandas as pd
 import subprocess
 import os
+import shutil
 import logging
 import datetime
 import psycopg2
@@ -19,9 +20,15 @@ import csv
 import numpy as np
 import math
 import locale
+from sqlalchemy.exc import IntegrityError
 
 # This program checks to see if there was a spike in volume in one of the industries in the NYSE.
 # December 1, 2017 Steve Ohi
+
+# logging.basicConfig(format='%(asctime)s %(message)s',filename='logfile.txt',level=logging.DEBUG)
+# logging.debug('Debug Level 1')
+# logging.info('Info Level 1')
+# logging.warning('Warning Level 1')
 
 # scrape_industries() scrapes the list of industries from https://finance.yahoo.com/industries/
 def scrape_industries():
@@ -41,12 +48,11 @@ def scrape_industries():
     logging.warning("No trading activity detected today")
 
 # At this point, you will need to write the date to an html page
-    print ("{:,d}".format(current_index.loc["^TV.US"]["Price(Intraday)"]),"{:,d}".format(previous_index.loc["^TV.US"]["Price(Intraday)"]))
+#    print ("{:,d}".format(current_index.loc["^TV.US"]["Price(Intraday)"]),"{:,d}".format(previous_index.loc["^TV.US"]["Price(Intraday)"]))
     return "False"
   else:
-# Uncomment the following lines if you need to debug
-#    print("Activity detected for", datetime.date.today().strftime("%B"), datetime.date.today().strftime("%d"), datetime.date.today().strftime("%Y"))
-#    print ("Difference ", ind_price.iloc[0]['Price'], " ", previous.iloc[0]['Price'])
+    print("Activity detected for", datetime.date.today().strftime("%B"), datetime.date.today().strftime("%d"), datetime.date.today().strftime("%Y"))
+    print ("Difference ", ind_price.iloc[0]['Price'], " ", previous.iloc[0]['Price'])
 # Remove the Total and Wholesale records from the current day's activity
     ind_price = ind_price[ind_price.Symbol != '^YHOH860']
     ind_price = ind_price[ind_price.Symbol != '^TV.US']
@@ -54,7 +60,10 @@ def scrape_industries():
     ind_price.to_csv('./tmp/ind_price2', header=None, index=False, sep=',')
 
 # Write the industry prices to the ind_price table
-    conn = psycopg2.connect(host="localhost",database="industry_volumes", user="postgres", password="password")
+# To delete records, use delete from ind_price where trade_date = 'yyyy-mm-dd';
+    conn = psycopg2.connect(dbname="industry_volumes", user="postgres", password="password")
+#    db_string = "postgres://postgres:password@localhost:5432/postgres"
+#    conn = psycopg2.connect(db_string)
     cur = conn.cursor()
     with open('./tmp/ind_price2', "r") as infile:
       next (infile) # Skip the row header
@@ -62,13 +71,9 @@ def scrape_industries():
       conn.commit()
       cur.close()
     infile.close()
-# This next line overwrites the previous volume with the latest volume copies the industries_current.txt file to the industries_previous.txt file   
-    with open('./tmp/ind_price_prev', 'w+') as output, open('./tmp/ind_price', 'r') as input:
-      output.write(input.read())
-    output.close
-    input.close
+#   Copy the contents of "./tmp/ind_price" to "./tmp/ind_price_prev" (uses shutil) to update the "if ind_price.iloc[0]['Price'] == previous.iloc[0]['Price']:" comparison
+    shutil.copyfile('./tmp/ind_price', './tmp/ind_price_prev')
     return "True"
-
 
 # This part of the program creates and formats urls for each industry
 def format_industry_urls():
@@ -80,21 +85,25 @@ def format_industry_urls():
   print("Symbol," + "URL," + "Name", file=f, flush=False)
   for url in table_urls:
      href = url.get('href')
+# Skip the total volume line
      if ("%5ETV" not in href):
+# Skip the ISP industry
        if ("%5EYHOH860" not in href):
-         if ("Wholesale_Other" not in href):
-           if ("p=" in href):
-             lhs, rhs = href.split("p=%5E", 1)
-             symbol = rhs.lstrip()
+# Skip the Property and Casualty industry
+           if ("%5EYHOH770" not in href):
+# Skip the Wholesale industry
+               if ("Wholesale_Other" not in href):
+                   if ("p=" in href):
+                       lhs, rhs = href.split("p=%5E", 1)
+                       symbol = rhs.lstrip()
 # The symbol is collected in the event that it is needed at a later date
-             symbol = "^" + symbol.rstrip()
-             print(symbol, end=",", file=f, flush=False)
-           if ("industry" in href):
-             lhs, industry = href.split("industry/", 1)
-             href = 'https://finance.yahoo.com' + href
-             print(href + "," + industry, end="\n", file=f, flush=False)
+                       symbol = "^" + symbol.rstrip()
+                       print(symbol, end=",", file=f, flush=False)
+                   if ("industry" in href):
+                       lhs, industry = href.split("industry/", 1)
+                       href = 'https://finance.yahoo.com' + href
+                       print(href + "," + industry, end="\n", file=f, flush=False)
   f.close()
-
 
 # Read the yahoo finance industry urls into an array and for each array, run the volume comparisons on both the specific industry and with each stock
 def get_stocks():
@@ -110,8 +119,7 @@ def get_stocks():
           avg_ind_vol = 0
         url_link = ind_df.get_value(s, 'URL')
         ind_symbol = ind_df.iloc[s]['Symbol']
-# Uncomment the following line if you need to debug
-#        print ('url_link ', url_link, 'Symbol ', ind_symbol)
+        print ('url_link ', url_link, 'Symbol ', ind_symbol)
         from random import randint
         from time import sleep
         sleep(randint(10,20))
@@ -128,11 +136,8 @@ def get_stocks():
 
 # Yahoo Finance displays volumes using commas and M's (to denote millions).  This section normalizes the data to numeric values
            for i in range (0, len(stock_data[0].index)):
-# Uncomment the following line if you need to debug
-#             print ("stock_data[0].iloc[i]['Volume'] ", stock_data[0].iloc[i]['Volume'])
+             print ("stock_data[0].iloc[i]['Volume'] ", stock_data[0].iloc[i]['Volume'])
              if "M" in str(stock_data[0].iloc[i]['Volume']):
-# Uncomment the following line if you need to debug
-#               print (stock_data[0].iloc[i]['Volume'])
                tempVol = int(float(str(stock_data[0].iloc[i]['Volume']).replace("M", "")) * 1000000)
                ind_vol = int(ind_vol) + int(tempVol);
              elif math.isnan(float(stock_data[0].iloc[i]['Volume'])):
@@ -141,8 +146,7 @@ def get_stocks():
              else:
                ind_vol = ind_vol + int((stock_data[0].iloc[i]['Volume']))
              if "M" in str(stock_data[0].iloc[i]['Avg Vol (3 month)']):
-# Uncomment the following line if you need to debug
-#               print (stock_data[0].iloc[i]['Avg Vol (3 month)'])
+               print (stock_data[0].iloc[i]['Avg Vol (3 month)'])
                tempVol = int(float(str(stock_data[0].iloc[i]['Avg Vol (3 month)']).replace("M", "")) * 1000000)
                stock_data[0].loc[i, 'Avg Vol (3 month)'] = tempVol
                stock_data[0].loc[i, 'Avg Vol (3 month)'] = int(stock_data[0].loc[i, 'Avg Vol (3 month)'])
@@ -152,33 +156,45 @@ def get_stocks():
              else:
                avg_ind_vol = avg_ind_vol+ int((stock_data[0].iloc[i]['Avg Vol (3 month)']))
 
-# Convert the Price and Price Change columns so that commas are removed and the values are not typed to tuples (for BRK stock)
-             if type(stock_data[0]['Price (Intraday)']) == tuple or type(stock_data[0].iloc[i]['Change'])== tuple:
-               stock_data[0]['Price (Intraday)'] = stock_data[0].to_numeric['Price (Intraday)']
-# Uncomment the following line if you need to debug
-#               print("stock_data[0]['Price (Intraday)'] converted from tuple ", stock_data[0]['Price (Intraday)'])
-               stock_data[0]['Change'] = stock_data[0].to_numeric['Change']
-# Uncomment the following line if you need to debug
-               #print("stock_data[0]['Change'] converted from tuple ", stock_data[0]['Change'])
-# This ensures that no NaN values are inserted into DECIMAL columns in the stock_data table
-             elif math.isnan(float(stock_data[0].iloc[i]['Price (Intraday)'])) or math.isnan(float(stock_data[0].iloc[i]['Change'])):
-               print ('The Price or Price change for {} is NaN'.format(stock_data[0].iloc[i]['Symbol']))
+# Write stock data to the database
+             conn = psycopg2.connect(dbname="industry_volumes", user="postgres", password="password")
+             cur = conn.cursor()
+             try:
+                 cur.execute("INSERT INTO stock_data (ind_symbol, stock_symbol, trade_date, stock_name, closing_price, price_change, price_percent_change, stock_volume, stock_avg_vol, mkt_cap) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (str(ind_symbol), str(stock_data[0].iloc[i]['Symbol']), now, str(stock_data[0].iloc[i]['Name']), float(stock_data[0].iloc[i]['Price (Intraday)']), float(stock_data[0].iloc[i]['Change']), str(stock_data[0].iloc[i]['% Change']), str(stock_data[0].iloc[i]['Volume']), str(stock_data[0].iloc[i]['Avg Vol (3 month)']), str(stock_data[0].iloc[i]['Market Cap'])))
+             except IntegrityError as e:
+                 print ("IntegrityError")
+                 logging.basicConfig(format='%(asctime)s %(message)s',filename='logfile',level=logging.DEBUG)
+                 logging.warning("Integrity Error for symbol '{0}'".format(str(stock_data[0].iloc[i]['Symbol'])))
+                 conn.rollback()
+             except Exception as e:
+                 print ("Error")
+                 conn.rollback()
              else:
-               conn = psycopg2.connect(host="localhost",database="industry_volumes", user="postgres", password="password")
-               cur = conn.cursor()
-               cur.execute("INSERT INTO stock_data (ind_symbol, stock_symbol, trade_date, stock_name, closing_price, price_change, price_percent_change, stock_volume, stock_avg_vol, mkt_cap) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (str(ind_symbol), str(stock_data[0].iloc[i]['Symbol']), now, str(stock_data[0].iloc[i]['Name']), float(stock_data[0].iloc[i]['Price (Intraday)']), float(stock_data[0].iloc[i]['Change']), str(stock_data[0].iloc[i]['% Change']), str(stock_data[0].iloc[i]['Volume']), str(stock_data[0].iloc[i]['Avg Vol (3 month)']), str(stock_data[0].iloc[i]['Market Cap'])))
-               conn.commit()
-               cur.close
+                 conn.commit()
+             cur.close
+#             try:
+#                cur = conn.cursor()
+#                try:
+#                    cur.execute("INSERT INTO stock_data (ind_symbol, stock_symbol, trade_date, stock_name, closing_price, price_change, price_percent_change, stock_volume, stock_avg_vol, mkt_cap) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)", (str(ind_symbol), str(stock_data[0].iloc[i]['Symbol']), now, str(stock_data[0].iloc[i]['Name']), float(stock_data[0].iloc[i]['Price (Intraday)']), float(stock_data[0].iloc[i]['Change']), str(stock_data[0].iloc[i]['% Change']), str(stock_data[0].iloc[i]['Volume']), str(stock_data[0].iloc[i]['Avg Vol (3 month)']), str(stock_data[0].iloc[i]['Market Cap'])))
+#                    except pyscopg2.IntegrityError:
+#                        conn.rollback()
+#                    else:
+#                        conn.commit()
+#                    cur.close
+#                except Exception, e:
+#                    print 'ERROR: ', e[0]
 
-# At this point you have the values to write directly to the database
+# Write industry volumes to the database
 
            percent_change_volume = int(ind_vol)/int(avg_ind_vol)*100
-           conn = psycopg2.connect(host="localhost",database="industry_volumes", user="postgres", password="password")
+           conn = psycopg2.connect(dbname="industry_volumes", user="postgres", password="password")
            cur = conn.cursor()
            cur.execute("INSERT INTO ind_vol(ind_symbol, trade_date, ind_vol, avg_ind_vol, percent_change_volume) VALUES (%s, %s, %s, %s, %s)", (ind_symbol, now, int(ind_vol), int(avg_ind_vol), percent_change_volume))
            conn.commit()
            cur.close
-  infile.close
+
+  infile.close()
+
 
 if __name__ == '__main__':
    now = datetime.date.today()
