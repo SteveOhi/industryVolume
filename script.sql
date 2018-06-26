@@ -1,8 +1,8 @@
 host=localhost port=5432 dbname=industry_volumes connect_timeout=10
 
 -- Add Users
-CREATE USER app_ro WITH PASSWORD 'BE#!patient123';
-CREATE USER app_rw WITH PASSWORD 'BE#!patient123';
+CREATE USER app_ro WITH PASSWORD 'password';
+CREATE USER app_rw WITH PASSWORD 'password';
 
 -- Create DB
 -- CREATE DATABASE industry_volumes;
